@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/exercisesFragment"
+        android:title="@string/exercises"
+        android:icon="@drawable/exercise_ic"/>
+
+
+    <item
+        android:id="@+id/trainingPlansFragment"
+        android:title="@string/plans"
+        android:icon="@drawable/plan_ic"/>
+
+    <item
+        android:id="@+id/motivationFragment"
+        android:title="@string/motivation"
+        android:icon="@drawable/motivation_ic"/>
+
+    <item
+        android:id="@+id/trainFragment"
+        android:title="@string/train"
+        android:icon="@drawable/train_ic"/>
+
+</menu>
