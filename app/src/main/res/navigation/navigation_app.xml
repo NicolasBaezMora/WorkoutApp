@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_app"
-    app:startDestination="@id/exercisesFragment">
+    app:startDestination="@id/exerciseHomeFragment">
 
     <fragment
         android:id="@+id/exercisesFragment"
@@ -30,4 +30,13 @@
         android:name="com.example.workoutapp.fragments.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/exerciseHomeFragment"
+        android:name="com.example.workoutapp.fragments.ExerciseHomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_exercise_home" >
+        <action
+            android:id="@+id/action_exerciseHomeFragment_to_exercisesFragment"
+            app:destination="@id/exercisesFragment" />
+    </fragment>
 </navigation>

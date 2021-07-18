@@ -16,16 +16,17 @@
     </style>
 
     <style name="BarStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
-        <item name="android:background">@color/yellow_dark</item>
-        <item name="titleTextStyle">@id/italic</item>
-        <item name="titleTextColor">@color/blue_dark</item>
+        <item name="android:background">@color/blue_dark</item>
+        <item name="titleTextColor">@color/white</item>
         <item name="spinBars">true</item>
-        <item name="color">@color/blue_dark</item>
+        <item name="color">@color/white</item>
     </style>
 
+
     <style name="BottomNavigationStyle">
-        <item name="android:background">@color/yellow_dark</item>
-        <item name="itemIconTint">@color/blue_dark</item>
-        <item name="itemTextColor">@color/blue_dark</item>
+        <item name="android:background">@color/blue_dark</item>
+        <item name="itemIconTint">@color/white</item>
+        <item name="itemTextColor">@color/white</item>
     </style>
+
 </resources>

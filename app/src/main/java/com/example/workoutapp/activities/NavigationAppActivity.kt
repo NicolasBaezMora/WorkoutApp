@@ -2,18 +2,24 @@ package com.example.workoutapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.view.ViewTreeObserver
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
 import com.example.workoutapp.R
 import com.example.workoutapp.databinding.ActivityNavigationAppBinding
+import com.google.android.material.internal.ViewUtils
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NavigationAppActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
 
     private lateinit var activityNavigationAppBinding: ActivityNavigationAppBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private val listMainFragments = mutableListOf<Int>()
 
     private val navController by lazy { findNavController(R.id.nav_host_fragment) }
 
@@ -22,6 +28,12 @@ class NavigationAppActivity : AppCompatActivity(), NavController.OnDestinationCh
         activityNavigationAppBinding = ActivityNavigationAppBinding.inflate(layoutInflater)
         setContentView(activityNavigationAppBinding.root)
 
+        listMainFragments.addAll(listOf(
+            R.id.exerciseHomeFragment,
+            R.id.trainingPlansFragment,
+            R.id.motivationFragment,
+            R.id.trainFragment
+        ))
         setupNavigation()
 
     }
@@ -30,7 +42,7 @@ class NavigationAppActivity : AppCompatActivity(), NavController.OnDestinationCh
         setSupportActionBar(activityNavigationAppBinding.toolBar)
         appBarConfiguration = AppBarConfiguration(
                 setOf(
-                        R.id.exercisesFragment,
+                        R.id.exerciseHomeFragment,
                         R.id.trainingPlansFragment,
                         R.id.motivationFragment,
                         R.id.trainFragment
@@ -55,12 +67,7 @@ class NavigationAppActivity : AppCompatActivity(), NavController.OnDestinationCh
         destination: NavDestination,
         arguments: Bundle?
     ) {
-        if (
-            destination.id != R.id.exercisesFragment &&
-            destination.id != R.id.trainingPlansFragment &&
-            destination.id != R.id.motivationFragment &&
-            destination.id != R.id.trainFragment
-        ) activityNavigationAppBinding.bottomNavigationView.visibility = View.GONE
-        else activityNavigationAppBinding.bottomNavigationView.visibility = View.VISIBLE
+        if (destination.id in listMainFragments) activityNavigationAppBinding.bottomNavigationView.visibility = View.VISIBLE
+        else activityNavigationAppBinding.bottomNavigationView.visibility = View.GONE
     }
 }

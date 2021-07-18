@@ -8,4 +8,6 @@
     <string name="train">Entrenar</string>
     <string name="configuration">Configuración</string>
     <string name="settings">Configuración</string>
+    <string name="search">Buscar</string>
+    <string name="home">Inicio</string>
 </resources>
