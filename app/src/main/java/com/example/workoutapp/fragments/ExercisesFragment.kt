@@ -60,8 +60,8 @@ class ExercisesFragment : Fragment(), OnItemClick {
     private fun getDataCategories() {
         vm.getResponseCategories().observe(viewLifecycleOwner, Observer {
             if (it.isSuccessful){
-                val data = it.body()?.listCategories ?: emptyList()
-                CategoryExerciseAdapter.listElements = data
+                val data = it.body() ?: emptyList()
+                categoryAdapter.listElements = data
                 categoryAdapter.notifyDataSetChanged()
             } else {
                 //NO INTERNET CONNECTION

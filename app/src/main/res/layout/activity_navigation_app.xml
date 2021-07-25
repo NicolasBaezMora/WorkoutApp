@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_gradient_app">
+        android:background="@color/blue_dark">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
@@ -49,9 +49,12 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationViewDrawer"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/menu_drawer"/>
+        android:background="@color/blue_dark_transparent"
+        app:menu="@menu/menu_drawer"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

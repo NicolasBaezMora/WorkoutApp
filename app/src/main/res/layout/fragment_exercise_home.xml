@@ -12,7 +12,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginVertical="20dp"
-        android:backgroundTint="@color/blue_dark"
+        android:backgroundTint="@color/blue_light"
         app:cardElevation="15dp"
         app:cardCornerRadius="100dp"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,10 +1,15 @@
 package com.example.workoutapp.di.modules
 
+import android.content.Context
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.example.workoutapp.rest.services.ApiRestService
+import com.example.workoutapp.room.roomdatabase.WorkOutRoomDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -31,7 +36,7 @@ object AppModule {
     fun provideRetrofitInstance(
         @Named(value = "httpClientInstance") httpClient: OkHttpClient
     ): Retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.0.16:8080/")
+        .baseUrl("http://192.168.0.37:8080/")
         .client(httpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
@@ -40,6 +45,17 @@ object AppModule {
     @Provides
     @Named(value = "apiRestServiceInstance")
     fun provideApiRestServiceInstance(): Class<ApiRestService> = ApiRestService::class.java
+
+    @Singleton
+    @Provides
+    @Named(value = "roomDatabaseInstance")
+    fun provideRoomDatabaseInstance(
+            @ApplicationContext context: Context
+    ): WorkOutRoomDatabase = Room.databaseBuilder(
+            context,
+            WorkOutRoomDatabase::class.java,
+            "workoutroomdatabase"
+    ).build()
 
 
 }

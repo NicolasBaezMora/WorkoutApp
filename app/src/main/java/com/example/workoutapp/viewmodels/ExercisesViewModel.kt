@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.workoutapp.rest.responses.CategoriesResponse
+import com.example.workoutapp.rest.responses.CategoryElementResponse
 import com.example.workoutapp.rest.services.ApiRestService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,8 +17,8 @@ class ExercisesViewModel @ViewModelInject constructor(
         @Named(value = "retrofitServiceInstance") private val retrofitServiceInstance: ApiRestService
 ): ViewModel() {
 
-    fun getResponseCategories(): LiveData<Response<CategoriesResponse>> {
-        val responseCategories = MutableLiveData<Response<CategoriesResponse>>()
+    fun getResponseCategories(): LiveData<Response<List<CategoryElementResponse>>> {
+        val responseCategories = MutableLiveData<Response<List<CategoryElementResponse>>>()
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO){
                 retrofitServiceInstance.getCategories().execute()

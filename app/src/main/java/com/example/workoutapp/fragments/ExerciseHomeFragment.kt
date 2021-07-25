@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -40,7 +40,7 @@ class ExerciseHomeFragment : Fragment(), View.OnClickListener, OnItemClick {
         super.onViewCreated(view, savedInstanceState)
 
         exerciseHomeFragBinding.cardViewBtnSearch.setOnClickListener(this)
-        setupCategoryAdapter()
+        setupExerciseAdapter()
 
     }
 
@@ -55,7 +55,7 @@ class ExerciseHomeFragment : Fragment(), View.OnClickListener, OnItemClick {
         }
     }
 
-    private fun setupCategoryAdapter() {
+    private fun setupExerciseAdapter() {
         exerciseAdapter = ExerciseAdapter(this)
         exerciseHomeFragBinding.recyclerViewMyExercises.adapter = exerciseAdapter
         exerciseHomeFragBinding.recyclerViewMyExercises.layoutManager = GridLayoutManager(context, 2)
@@ -64,15 +64,18 @@ class ExerciseHomeFragment : Fragment(), View.OnClickListener, OnItemClick {
     private fun getDataExercises() {
         vm.getResponseExercise().observe(viewLifecycleOwner, Observer{
             if (it.isSuccessful){
-                val data = it.body()?.listExercises ?: emptyList()
-                ExerciseAdapter.listElements = data
+                val data = it.body() ?: emptyList()
+                exerciseAdapter.listElements = data
                 exerciseAdapter.notifyDataSetChanged()
             }
         })
     }
 
     override fun onItemClickListener(item: ParentElementResponse) {
-        Toast.makeText(context, (item as ExerciseElementResponse).title, Toast.LENGTH_SHORT).show()
+        val itemExerciseElement: ExerciseElementResponse = item as ExerciseElementResponse
+        navController.navigate(R.id.action_exerciseHomeFragment_to_exerciseViewFragment, bundleOf(
+            "dataItem" to itemExerciseElement
+        ))
     }
 
 }

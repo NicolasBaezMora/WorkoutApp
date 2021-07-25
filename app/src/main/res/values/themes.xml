@@ -22,7 +22,6 @@
         <item name="color">@color/white</item>
     </style>
 
-
     <style name="BottomNavigationStyle">
         <item name="android:background">@color/blue_dark</item>
         <item name="itemIconTint">@color/white</item>

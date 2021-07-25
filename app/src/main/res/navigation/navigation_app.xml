@@ -9,7 +9,11 @@
         android:id="@+id/exercisesFragment"
         android:name="com.example.workoutapp.fragments.ExercisesFragment"
         android:label="@string/exercises"
-        tools:layout="@layout/fragment_exercises" />
+        tools:layout="@layout/fragment_exercises" >
+        <action
+            android:id="@+id/action_exercisesFragment_to_exerciseViewFragment"
+            app:destination="@id/exerciseViewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/motivationFragment"
         android:name="com.example.workoutapp.fragments.MotivationFragment"
@@ -38,5 +42,22 @@
         <action
             android:id="@+id/action_exerciseHomeFragment_to_exercisesFragment"
             app:destination="@id/exercisesFragment" />
+        <action
+            android:id="@+id/action_exerciseHomeFragment_to_exerciseViewFragment"
+            app:destination="@id/exerciseViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseViewFragment"
+        android:name="com.example.workoutapp.fragments.ExerciseViewFragment"
+        android:label=""
+        tools:layout="@layout/fragment_exercise_view" />
+    <fragment
+        android:id="@+id/favoritesExercisesFragment"
+        android:name="com.example.workoutapp.fragments.FavoritesExercisesFragment"
+        android:label="@string/fav"
+        tools:layout="@layout/fragment_favorites_exercises" >
+        <action
+            android:id="@+id/action_favoritesExercisesFragment_to_exerciseViewFragment"
+            app:destination="@id/exerciseViewFragment" />
     </fragment>
 </navigation>

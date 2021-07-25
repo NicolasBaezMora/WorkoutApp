@@ -1,3 +1,5 @@
 package com.example.workoutapp.rest.responses
 
-open class ParentElementResponse
+import java.io.Serializable
+
+abstract class ParentElementResponse: Serializable

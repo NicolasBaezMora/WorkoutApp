@@ -13,9 +13,8 @@ class CategoryExerciseAdapter(
         private val onItemClick: OnItemClick
 ): RecyclerView.Adapter<CategoryExerciseAdapter.CategoriesExerciseViewHolder>() {
 
-    companion object {
-        var listElements = listOf<CategoryElementResponse>()
-    }
+    var listElements = listOf<CategoryElementResponse>()
+
 
     inner class CategoriesExerciseViewHolder(itemViewCategoryExercise: View): RecyclerView.ViewHolder(itemViewCategoryExercise){
 

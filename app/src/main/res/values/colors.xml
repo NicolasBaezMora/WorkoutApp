@@ -13,11 +13,12 @@
     <color name="yellow_dark">#FBC60F</color>
     <color name="yellow_light">#F9DA70</color>
     <color name="blue_dark">#243c4c</color>
-    <color name="blue_dark_transparent">#99243C4C</color>
+    <color name="blue_dark_transparent">#E6243C4C</color>
+    <color name="blue_dark_transparent_for_images">#99243C4C</color>
     <color name="brown_light">#945D5D</color>
     <color name="brown_dark">#5A363C</color>
     <color name="purple">#C491C9</color>
-    <color name="red">#D81159</color>
-    <color name="blue_light">#C3DBEA</color>
+    <color name="red">#F44336</color>
+    <color name="blue_light">#3B5B71</color>
 
 </resources>

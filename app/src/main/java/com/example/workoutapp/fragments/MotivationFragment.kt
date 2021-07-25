@@ -54,8 +54,8 @@ class MotivationFragment : Fragment(), OnItemClick {
     private fun getDataMotivations() {
         vm.getResponseMotivation().observe(viewLifecycleOwner, Observer {
             if (it.isSuccessful){
-                val data = it.body()?.motivationList ?: emptyList()
-                MotivationAdapter.listElements = data
+                val data = it.body() ?: emptyList()
+                motivationAdapter.listElements = data
                 motivationAdapter.notifyDataSetChanged()
             }
         })

@@ -14,9 +14,7 @@ class MotivationAdapter(
         private val onItemClick: OnItemClick
 ): RecyclerView.Adapter<MotivationAdapter.MotivationViewHolder>() {
 
-    companion object {
-        var listElements = emptyList<MotivationElementResponse>()
-    }
+    var listElements = emptyList<MotivationElementResponse>()
 
     inner class MotivationViewHolder(itemViewMotivation: View): RecyclerView.ViewHolder(itemViewMotivation) {
 

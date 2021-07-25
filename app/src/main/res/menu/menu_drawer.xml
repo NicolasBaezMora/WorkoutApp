@@ -7,4 +7,9 @@
         android:title="@string/configuration"
         android:icon="@drawable/ic_baseline_settings_24"/>
 
+    <item
+        android:id="@+id/favoritesExercisesFragment"
+        android:title="@string/fav"
+        android:icon="@drawable/ic_baseline_favorite_24"/>
+
 </menu>
