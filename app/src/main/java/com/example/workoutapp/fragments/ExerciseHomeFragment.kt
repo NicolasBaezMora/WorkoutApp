@@ -13,14 +13,15 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.workoutapp.R
 import com.example.workoutapp.adapters.ExerciseAdapter
 import com.example.workoutapp.databinding.FragmentExerciseHomeBinding
+import com.example.workoutapp.databinding.ItemExerciseBinding
 import com.example.workoutapp.itemlistener.OnItemClick
-import com.example.workoutapp.rest.responses.ExerciseElementResponse
-import com.example.workoutapp.rest.responses.ParentElementResponse
+import com.example.workoutapp.rest.responsemodels.ExerciseElementResponse
+import com.example.workoutapp.rest.responsemodels.ParentElementResponse
 import com.example.workoutapp.viewmodels.ExerciseHomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ExerciseHomeFragment : Fragment(), View.OnClickListener, OnItemClick {
+class ExerciseHomeFragment : Fragment(), View.OnClickListener, OnItemClick<ItemExerciseBinding> {
 
     private lateinit var exerciseHomeFragBinding: FragmentExerciseHomeBinding
     private lateinit var exerciseAdapter: ExerciseAdapter
@@ -64,14 +65,16 @@ class ExerciseHomeFragment : Fragment(), View.OnClickListener, OnItemClick {
     private fun getDataExercises() {
         vm.getResponseExercise().observe(viewLifecycleOwner, Observer{
             if (it.isSuccessful){
-                val data = it.body() ?: emptyList()
-                exerciseAdapter.listElements = data
-                exerciseAdapter.notifyDataSetChanged()
+                val dataResponse = it.body()
+                if (dataResponse?.ok!!) {
+                    exerciseAdapter.listElements = dataResponse.body
+                    exerciseAdapter.notifyDataSetChanged()
+                }
             }
         })
     }
 
-    override fun onItemClickListener(item: ParentElementResponse) {
+    override fun onItemClickListener(item: ParentElementResponse, binding: ItemExerciseBinding, view: View) {
         val itemExerciseElement: ExerciseElementResponse = item as ExerciseElementResponse
         navController.navigate(R.id.action_exerciseHomeFragment_to_exerciseViewFragment, bundleOf(
             "dataItem" to itemExerciseElement

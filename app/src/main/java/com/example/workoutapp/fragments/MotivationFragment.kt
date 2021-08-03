@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.workoutapp.adapters.MotivationAdapter
 import com.example.workoutapp.databinding.FragmentMotivationBinding
 import com.example.workoutapp.itemlistener.OnItemClick
-import com.example.workoutapp.rest.responses.ParentElementResponse
+import com.example.workoutapp.rest.responsemodels.ParentElementResponse
 import com.example.workoutapp.viewmodels.MotivationViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MotivationFragment : Fragment(), OnItemClick {
+class MotivationFragment : Fragment(){
 
     private lateinit var motivationFragBinding: FragmentMotivationBinding
     private lateinit var motivationAdapter: MotivationAdapter
@@ -46,7 +46,7 @@ class MotivationFragment : Fragment(), OnItemClick {
     }
 
     private fun setupMotivationAdapter() {
-        motivationAdapter = MotivationAdapter(this)
+        motivationAdapter = MotivationAdapter()
         motivationFragBinding.recyclerViewMotivations.adapter = motivationAdapter
         motivationFragBinding.recyclerViewMotivations.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
@@ -54,15 +54,13 @@ class MotivationFragment : Fragment(), OnItemClick {
     private fun getDataMotivations() {
         vm.getResponseMotivation().observe(viewLifecycleOwner, Observer {
             if (it.isSuccessful){
-                val data = it.body() ?: emptyList()
-                motivationAdapter.listElements = data
-                motivationAdapter.notifyDataSetChanged()
+                val dataResponse = it.body()
+                if (dataResponse?.ok!!) {
+                    motivationAdapter.listElements = dataResponse.body
+                    motivationAdapter.notifyDataSetChanged()
+                }
             }
         })
-    }
-
-    override fun onItemClickListener(item: ParentElementResponse) {
-        print("Hello world")
     }
 
 }

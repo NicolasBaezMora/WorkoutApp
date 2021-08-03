@@ -16,16 +16,46 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/guideLine60"/>
 
-    <TextView
-        android:id="@+id/textViewDescription"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutDescription"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"
-        android:background="@color/white"
+        android:background="@color/blue_dark_transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/guideLine60"/>
+        app:layout_constraintBottom_toTopOf="@id/guideLine60">
+
+        <TextView
+            android:id="@+id/textViewTitleDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/description"
+            android:textColor="@color/white"
+            android:textStyle="italic"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:textColor="@color/white"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewTitleDesc"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideLine60"

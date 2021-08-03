@@ -20,5 +20,6 @@
     <color name="purple">#C491C9</color>
     <color name="red">#F44336</color>
     <color name="blue_light">#3B5B71</color>
+    <color name="blue_light_transparent">#E63B5B71</color>
 
 </resources>

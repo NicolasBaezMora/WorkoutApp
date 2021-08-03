@@ -28,7 +28,11 @@
         android:id="@+id/trainingPlansFragment"
         android:name="com.example.workoutapp.fragments.TrainingPlansFragment"
         android:label="@string/plans"
-        tools:layout="@layout/fragment_training_plans" />
+        tools:layout="@layout/fragment_training_plans" >
+        <action
+            android:id="@+id/action_trainingPlansFragment_to_makePlanFragment"
+            app:destination="@id/makePlanFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.workoutapp.fragments.SettingsFragment"
@@ -60,4 +64,18 @@
             android:id="@+id/action_favoritesExercisesFragment_to_exerciseViewFragment"
             app:destination="@id/exerciseViewFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/makePlanFragment"
+        android:name="com.example.workoutapp.fragments.MakePlanFragment"
+        android:label="@string/makePlan"
+        tools:layout="@layout/fragment_make_plan" >
+        <action
+            android:id="@+id/action_makePlanFragment_to_trainTimerFragment"
+            app:destination="@id/trainTimerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trainTimerFragment"
+        android:name="com.example.workoutapp.fragments.TrainTimerFragment"
+        android:label="@string/timerTrain"
+        tools:layout="@layout/fragment_train_timer" />
 </navigation>

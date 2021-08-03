@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MakePlanFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/editTextTitlePlan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:hint="@string/titlePlan"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:drawableStart="@drawable/ic_baseline_sports_handball_24"
+            android:drawablePadding="10dp"
+            android:background="@drawable/background_input_title_plan"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/textViewD"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"
+            android:textStyle="italic"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:text="@string/chooseExercises"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextTitlePlan"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewExercises"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:overScrollMode="never"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewD"/>
+
+        <Button
+            android:id="@+id/btnConfirmPlan"
+            android:layout_margin="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_plan"
+            android:background="@drawable/background_btn_add_plan"
+            app:backgroundTint="@null"
+            app:icon="@drawable/ic_baseline_add_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/viewTimer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue_dark"
+        android:visibility="gone">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="25dp">
+
+            <Button
+                android:id="@+id/btnExitTimer"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@android:color/transparent"
+                app:backgroundTint="@null"
+                app:iconSize="40dp"
+                app:icon="@drawable/ic_baseline_fullscreen_exit_24"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/textViewTimerType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/textViewM1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="H"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/textViewH2"
+                app:layout_constraintEnd_toEndOf="@id/guideLineV33" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="M"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/textViewM2"
+                app:layout_constraintEnd_toEndOf="@id/guideLineV66" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="S"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/textViewS2"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewH1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="70sp"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH32"
+                app:layout_constraintEnd_toStartOf="@id/textViewH2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewH2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="50dp"
+                android:layout_marginEnd="30dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="70sp"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH32"
+                app:layout_constraintEnd_toStartOf="@id/textViewM1"
+                app:layout_constraintStart_toEndOf="@id/textViewH1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="50dp"
+                android:text=":"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="70sp"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH32"
+                app:layout_constraintEnd_toStartOf="@id/textViewM1"
+                app:layout_constraintStart_toEndOf="@id/textViewH2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textViewM1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="70sp"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH32"
+                app:layout_constraintEnd_toStartOf="@id/textViewM2"
+                app:layout_constraintStart_toEndOf="@id/textViewH2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewM2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="50dp"
+                android:layout_marginEnd="30dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="70sp"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH32"
+                app:layout_constraintEnd_toStartOf="@id/textViewS1"
+                app:layout_constraintStart_toEndOf="@id/textViewM1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="50dp"
+                android:text=":"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="70sp"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH32"
+                app:layout_constraintEnd_toStartOf="@id/textViewS1"
+                app:layout_constraintStart_toEndOf="@id/textViewM2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textViewS1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="70sp"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH32"
+                app:layout_constraintEnd_toStartOf="@id/textViewS2"
+                app:layout_constraintStart_toEndOf="@id/textViewM2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewS2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginVertical="50dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="70sp"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH32"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/textViewS1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/background_btn_number"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH49"
+                app:layout_constraintEnd_toEndOf="@id/guideLineV33"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideLineH32" />
+
+
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/background_btn_number"
+                android:text="2"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH49"
+                app:layout_constraintEnd_toEndOf="@id/guideLineV66"
+                app:layout_constraintStart_toStartOf="@id/guideLineV33"
+                app:layout_constraintTop_toTopOf="@id/guideLineH32" />
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/background_btn_number"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH49"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guideLineV66"
+                app:layout_constraintTop_toTopOf="@id/guideLineH32" />
+
+            <Button
+                android:id="@+id/btn4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/background_btn_number"
+                android:text="4"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH66"
+                app:layout_constraintEnd_toEndOf="@id/guideLineV33"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideLineH49" />
+
+            <Button
+                android:id="@+id/btn5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/background_btn_number"
+                android:text="5"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH66"
+                app:layout_constraintEnd_toEndOf="@id/guideLineV66"
+                app:layout_constraintStart_toStartOf="@id/guideLineV33"
+                app:layout_constraintTop_toTopOf="@id/guideLineH49" />
+
+            <Button
+                android:id="@+id/btn6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/background_btn_number"
+                android:text="6"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH66"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guideLineV66"
+                app:layout_constraintTop_toTopOf="@id/guideLineH49" />
+
+            <Button
+                android:id="@+id/btn7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/background_btn_number"
+                android:text="7"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH83"
+                app:layout_constraintEnd_toEndOf="@id/guideLineV33"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideLineH66" />
+
+            <Button
+                android:id="@+id/btn8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/background_btn_number"
+                android:text="8"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH83"
+                app:layout_constraintEnd_toEndOf="@id/guideLineV66"
+                app:layout_constraintStart_toStartOf="@id/guideLineV33"
+                app:layout_constraintTop_toTopOf="@id/guideLineH66" />
+
+            <Button
+                android:id="@+id/btn9"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/background_btn_number"
+                android:text="9"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="@id/guideLineH83"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guideLineV66"
+                app:layout_constraintTop_toTopOf="@id/guideLineH66" />
+
+
+            <Button
+                android:id="@+id/btn0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/background_btn_number"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guideLineV66"
+                app:layout_constraintStart_toStartOf="@id/guideLineV33"
+                app:layout_constraintTop_toTopOf="@id/guideLineH83" />
+
+            <Button
+                android:id="@+id/btnErase"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/background_btn_number"
+                app:icon="@drawable/ic_baseline_cancel_24"
+                app:iconTint="@color/white"
+                app:iconSize="60dp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guideLineV33"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideLineH83" />
+
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:background="@drawable/background_btn_number"
+                app:icon="@drawable/ic_baseline_navigate_next_24"
+                app:iconTint="@color/white"
+                app:iconSize="60dp"
+                app:backgroundTint="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guideLineV66"
+                app:layout_constraintTop_toTopOf="@id/guideLineH83" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLineH32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".32" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLineH49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".49" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLineH66"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".66" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLineH83"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".83" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLineV33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".3333" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLineV66"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".6666" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </FrameLayout>
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+

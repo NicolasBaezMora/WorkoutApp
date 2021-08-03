@@ -13,14 +13,15 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.workoutapp.R
 import com.example.workoutapp.adapters.ExerciseAdapter
 import com.example.workoutapp.databinding.FragmentFavoritesExercisesBinding
+import com.example.workoutapp.databinding.ItemExerciseBinding
 import com.example.workoutapp.itemlistener.OnItemClick
-import com.example.workoutapp.rest.responses.ExerciseElementResponse
-import com.example.workoutapp.rest.responses.ParentElementResponse
+import com.example.workoutapp.rest.responsemodels.ExerciseElementResponse
+import com.example.workoutapp.rest.responsemodels.ParentElementResponse
 import com.example.workoutapp.viewmodels.FavoritesExercisesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FavoritesExercisesFragment : Fragment(), OnItemClick {
+class FavoritesExercisesFragment : Fragment(), OnItemClick<ItemExerciseBinding> {
 
     private lateinit var favoritesExercisesFragBinding: FragmentFavoritesExercisesBinding
     private lateinit var exerciseAdapter: ExerciseAdapter
@@ -63,7 +64,7 @@ class FavoritesExercisesFragment : Fragment(), OnItemClick {
         })
     }
 
-    override fun onItemClickListener(item: ParentElementResponse) {
+    override fun onItemClickListener(item: ParentElementResponse, binding: ItemExerciseBinding, view: View) {
         val itemExerciseElement: ExerciseElementResponse = item as ExerciseElementResponse
         navController.navigate(R.id.action_favoritesExercisesFragment_to_exerciseViewFragment, bundleOf(
             "dataItem" to itemExerciseElement

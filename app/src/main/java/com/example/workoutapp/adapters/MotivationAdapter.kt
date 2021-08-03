@@ -7,12 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutapp.R
 import com.example.workoutapp.databinding.ItemMotivationBinding
 import com.example.workoutapp.itemlistener.OnItemClick
-import com.example.workoutapp.rest.responses.MotivationElementResponse
+import com.example.workoutapp.rest.responsemodels.MotivationElementResponse
 import com.squareup.picasso.Picasso
 
-class MotivationAdapter(
-        private val onItemClick: OnItemClick
-): RecyclerView.Adapter<MotivationAdapter.MotivationViewHolder>() {
+class MotivationAdapter: RecyclerView.Adapter<MotivationAdapter.MotivationViewHolder>() {
 
     var listElements = emptyList<MotivationElementResponse>()
 

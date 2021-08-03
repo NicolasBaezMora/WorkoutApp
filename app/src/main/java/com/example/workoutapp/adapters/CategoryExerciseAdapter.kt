@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutapp.R
 import com.example.workoutapp.databinding.ItemCategoryExerciseBinding
 import com.example.workoutapp.itemlistener.OnItemClick
-import com.example.workoutapp.rest.responses.CategoryElementResponse
+import com.example.workoutapp.rest.responsemodels.CategoryElementResponse
 
 class CategoryExerciseAdapter(
-        private val onItemClick: OnItemClick
+        private val onItemClick: OnItemClick<ItemCategoryExerciseBinding>
 ): RecyclerView.Adapter<CategoryExerciseAdapter.CategoriesExerciseViewHolder>() {
 
     var listElements = listOf<CategoryElementResponse>()
@@ -23,7 +23,7 @@ class CategoryExerciseAdapter(
         fun bind(itemCategoryExercise: CategoryElementResponse){
             exerciseItemBinding.btnCategory.text = itemCategoryExercise.title
             exerciseItemBinding.btnCategory.setOnClickListener {
-                onItemClick.onItemClickListener(itemCategoryExercise)
+                onItemClick.onItemClickListener(itemCategoryExercise, exerciseItemBinding, it)
             }
         }
 

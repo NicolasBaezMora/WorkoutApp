@@ -11,4 +11,13 @@
     <string name="search">Buscar</string>
     <string name="home">Inicio</string>
     <string name="fav">Favoritos</string>
+    <string name="description">Descripción:</string>
+    <string name="titlePlan">Título del plan</string>
+    <string name="makePlan">Crear plan</string>
+    <string name="chooseExercises">Elije los ejercicios que conformaran tu plan</string>
+    <string name="occurredError">Ocurrió un error</string>
+    <string name="train_time_txt">Tiempo de entreno:</string>
+    <string name="break_time_txt">Tiempo de descanso:</string>
+    <string name="timerTrain">Configuración de tiempos</string>
+    <string name="add_plan">Añadir plan</string>
 </resources>

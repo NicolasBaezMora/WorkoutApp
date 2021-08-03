@@ -1,4 +1,4 @@
-package com.example.workoutapp.rest.responses
+package com.example.workoutapp.rest.responsemodels
 
 import com.google.gson.annotations.SerializedName
 

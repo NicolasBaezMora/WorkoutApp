@@ -7,14 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.airbnb.lottie.LottieAnimationView
 import com.example.workoutapp.R
 import com.example.workoutapp.databinding.FragmentExerciseViewBinding
-import com.example.workoutapp.rest.responses.ExerciseElementResponse
+import com.example.workoutapp.rest.responsemodels.ExerciseElementResponse
 import com.example.workoutapp.viewmodels.ViewExerciseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -123,10 +121,10 @@ class ExerciseViewFragment : Fragment(), View.OnClickListener {
 
     private fun changeDescriptionVisibility() {
         if (!isShowDescription){
-            exerciseFragBinding.textViewDescription.visibility = View.VISIBLE
+            exerciseFragBinding.layoutDescription.visibility = View.VISIBLE
             isShowDescription = true
         } else {
-            exerciseFragBinding.textViewDescription.visibility = View.GONE
+            exerciseFragBinding.layoutDescription.visibility = View.GONE
             isShowDescription = false
         }
     }

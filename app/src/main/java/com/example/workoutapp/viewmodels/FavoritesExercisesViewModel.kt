@@ -5,7 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.workoutapp.rest.responses.ExerciseElementResponse
+import com.example.workoutapp.rest.responsemodels.DefaultResponse
+import com.example.workoutapp.rest.responsemodels.ExerciseElementResponse
 import com.example.workoutapp.rest.services.ApiRestService
 import com.example.workoutapp.room.dao.FavoriteExerciseDao
 import com.example.workoutapp.room.entities.FavoriteExercise
@@ -41,8 +42,7 @@ class FavoritesExercisesViewModel @ViewModelInject constructor(
                             retrofitServiceInstance.getExerciseById(i.valueIdExercise).execute()
                         }
                         if (result.isSuccessful) {
-                            val data = result.body()
-                            listExercisesConsulted.add(data!!)
+                            if (result.body()?.ok!!) listExercisesConsulted.add(result.body()!!.body)
                         }
                     }
                     listExercises.postValue(listExercisesConsulted)
